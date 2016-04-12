@@ -1,0 +1,55 @@
+@charset "UTF-8";
+//============================================================
+// 背景渐变，默认垂直（vertical），横向为（horizontal）
+// @include gradient-horizontal(#333, #ccc, horizontal);
+//============================================================
+@mixin gradient-background($from, $to, $orientation: vertical) {
+  // 现代浏览器
+  @if $orientation==vertical {
+    @include background-image(linear-gradient($from, $to));
+  }
+  @else {
+    @include background-image(linear-gradient(left top, $from, $to));
+  }
+  //IE6+
+  @include filter-gradient($from, $to, $orientation);
+}
+
+// 清除浮动
+@mixin clearfix {
+  *zoom: 1;
+  overflow: hidden;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// 修复IE6不支持inline-block功能
+@mixin inline-block() {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+}
+
+// 修复IE6不支持min-width
+@mixin min-width($w) {
+  min-width: $w;
+  width: auto;
+  _width: $w;
+}
+
+// 修复IE6不支持min-heigth
+@mixin min-height($h) {
+  min-height: $h;
+  height: auto;
+  _height: $h;
+}

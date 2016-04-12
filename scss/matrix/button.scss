@@ -1,0 +1,74 @@
+@charset "UTF-8";
+//============================================================
+// 按钮样式
+//============================================================
+.btn {
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  @include inline-block();
+  span {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    @include inline-block();
+    @include min-width(80px);
+  }
+}
+
+a.btn-primary {
+  border: 1px solid #1159A4;
+  box-shadow: 0 0 1px #B4B4B4;
+  @include gradient-background(#498dd3, #2169b5);
+  span {
+    color: #fff;
+    border: 1px solid #649ed9;
+  }
+  &:hover {
+    border: 1px solid #1364b8;
+    @include gradient-background(#539fee, #2478cf);
+    span {
+      border: 1px solid #6badf0;
+    }
+  }
+  &:active {
+    @include gradient-background(#2870bb, #4085cd);
+    span {
+      border: 1px solid #6badf0;
+    }
+  }
+}
+
+a.btn-secondary {
+  border: 1px solid #a7c9eb;
+  box-shadow: 0 0 1px #ddeaf5;
+  @include gradient-background(#f8fbfe, #d9e7f5);
+  span {
+    color: #2a71bc;
+    border: 1px solid #ddeaf5;
+  }
+  &:hover {
+    border: 1px solid #a7c9eb;
+    @include gradient-background(#fff, #dbe8f6);
+    span {
+      border: 1px solid #ddeaf5;
+    }
+  }
+  &:active {
+    @include gradient-background(#c5d9ed, #e7f0f9);
+    span {
+      border: 1px solid #ddeaf5;
+    }
+  }
+}
+
+a.btn-disabled {
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 0 1px #dbdddf;
+  @include gradient-background(#f7f7f7, #d9d9d9);
+  cursor: default;
+  span {
+    color: #b6b6b6;
+    border: 1px solid #dedede;
+  }
+}

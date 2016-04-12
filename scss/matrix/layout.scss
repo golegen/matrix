@@ -1,0 +1,32 @@
+@charset "UTF-8";
+//============================================================
+// 布局样式
+//============================================================
+@import "compass/layout.scss";
+@mixin base-layout($win-min-width, $footer-height, $content-margin) {
+  // IE6 min-width 不起作用的情况
+  .min-width-out {
+    _position: relative;
+    _margin-left: $win-min-width;
+    _zoom: 1;
+  }
+  .min-width-in {
+    _position: relative;
+    _float: left;
+    _margin-left: -$win-min-width;
+  }
+  .min-width {
+    min-width: $win-min-width;
+    _zoom: 1;
+  }
+  // 页脚沉底
+  @include sticky-footer($footer-height, ".wrapper", ".push", ".footer");
+  //980宽度下
+  .mx-layout-center .header .content,
+  .mx-layout-center .footer .content,
+  .mx-layout-center .main .content {
+    width: $win-min-width - $content-margin * 2!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+  }
+}

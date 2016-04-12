@@ -1,0 +1,60 @@
+@charset "UTF-8";
+//============================================================
+// 表格
+//============================================================
+.table {
+  overflow-x: auto;
+  border: 1px solid $formBorderColor;
+}
+
+.table table {
+  width: 100%;
+  background: white;
+  border-collapse: separate;
+  *border-collapse: collapse;
+}
+
+.table th {
+  padding: 8px 0 8px 15px;
+  background: #E9EFF6;
+  font-weight: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.table td {
+  padding: 15px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.table tbody {
+  td {
+    border-bottom: 1px solid $tdBorderColor;
+  }
+}
+
+.table tfoot {
+  line-height: 20px;
+  strong {
+    color: #2A69AC;
+  }
+}
+
+.table .page {
+  color: #999;
+  a {
+    margin: 0 5px;
+  }
+  .current {
+    color: #333;
+    font-weight: bold;
+  }
+}
+
+// 使table有竖线分隔
+.table-border {
+  td {
+    border-right: 1px solid $tdBorderColor;
+  }
+}

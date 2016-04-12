@@ -1,0 +1,102 @@
+@charset "UTF-8";
+//============================================================
+// 表单 输入框样式
+//============================================================
+.label {
+  display: inline;
+  margin: 10px 0;
+  text-align: center;
+  white-space: nowrap;
+  color: #333;
+}
+
+.label b {
+  color: #c00;
+  margin-right: 5px;
+}
+
+.label-top {
+  vertical-align: top;
+  _padding-top: 5px;
+}
+
+.form-table .label {
+  width: $formLabelWidth;
+  text-align: right;
+  @include inline-block();
+}
+
+.form-list .label {
+  width: $formLabelWidthLong;
+  text-align: right;
+  @include inline-block();
+}
+
+.form-unit {
+  @include inline-block();
+  padding: 10px 10px;
+  width: $formInputWidth;
+  font-size: 14px;
+  color: #555;
+  vertical-align: middle;
+  background: #fff;
+  border: 1px solid $formBorderColor;
+  /* -webkit-appearance: none; */
+  border-radius: 0;
+}
+
+.form-unit-error {
+  border: 1px solid $formBorderErrorColor;
+}
+
+.form-unit-disabled {
+  background-color: $formBgDisabledColor;
+}
+
+.form-list .form-unit {
+  width: $formInputWidthLong;
+}
+
+.form-content .form-list .form-unit {
+  width: $formInputWidthMed;
+}
+
+.form-unit:focus {
+  border: 1px solid #7ea3c9;
+}
+
+.form-text {
+  @include inline-block();
+  padding: 10px 0;
+  width: $formInputWidth;
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  vertical-align: middle;
+}
+
+.form-group .img-code {
+  vertical-align: bottom;
+  margin-left: 7px;
+}
+
+.form-content .form-list .form-unit-imgcode {
+  width: 88px;
+}
+
+.form-content .form-list .form-unit-smscode {
+  width: 134px;
+}
+
+.form-content .form-list .tips-content-card {
+  position: absolute;
+  top: -41px;
+  left: -285px;
+  border: 1px solid #e5e5ab;
+  font-size: 22px;
+  background-color: #ffffcc;
+  padding: 10px;
+  *width: 250px;
+  min-width: 250px;
+  height: 18px;
+}

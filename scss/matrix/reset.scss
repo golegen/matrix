@@ -1,0 +1,177 @@
+@charset "UTF-8";
+//============================================================
+// 重置样式，使各浏览器尽量保持一致
+//============================================================
+// 避免IE6下14px字体缺上面部份
+$baseLineHeight: 16px;
+html {
+  color: #666;
+  background: #fff;
+  //保持移动端缩放网页大小保持字体不变
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  //强制保持右侧滚动条显示，避免长、短网页切换时产生抖动
+  overflow-y: scroll;
+}
+
+//删除默认边距
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+
+//修正IE 8/9 中未定义的块级元素
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+//修正在 IE 8/9 中未定义的 'inline-block' 元素。
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+//修正所有浏览器中未被继承的字体类型/大小
+body,
+button,
+input,
+select,
+textarea {
+  font: 500 13px Verdana, Geneva, sans-serif, SimSun;
+  line-height: $baseLineHeight;
+}
+
+//去除 IE6 input/button 多余的空白
+button,
+input {
+  *width: auto;
+  *overflow: visible;
+  //让 input 和 button 一样高
+  line-height: $baseLineHeight;
+}
+
+//去掉各Table  cell 的边距并让其边重合
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+//IE bug fixed: th 不继承 text-align
+th {
+  text-align: inherit;
+}
+
+//去除默认边框
+fieldset,
+img {
+  border: 0;
+}
+
+//解决 IE6-7 图片缩放锯齿问题
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+//ie6 7 8(q) bug 显示为行内表现
+iframe {
+  display: block;
+}
+
+//去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去
+ul,
+ol {
+  list-style: none;
+}
+
+//对齐是排版最重要的因素, 别让什么都居中
+caption,
+th {
+  text-align: left;
+}
+
+//去掉firefox下<q></q>会自动产生的引号
+q:before,
+q:after {
+  content: '';
+}
+
+//让链接在 hover 状态下显示下划线
+a:hover {
+  text-decoration: none;
+}
+
+//默认不显示下划线，保持页面简洁
+ins,
+a {
+  text-decoration: none;
+}
+
+// 去掉默认焦点外框
+a,
+input,
+select,
+label {
+  outline: none;
+}
+
+textarea {
+  //删除 IE8/9 中默认的垂直滚动条
+  overflow: auto;
+  //改善所有浏览器中的可读性并使文本垂直对齐
+  vertical-align: top;
+}
+
+//重置不可用元素的默认光标样式
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}

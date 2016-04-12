@@ -1,0 +1,415 @@
+﻿@charset "UTF-8";
+@import "matrix.scss";
+// 变量
+$layout-footer-height: 70px; // 页脚高度
+$win-min-width: 980px; // 窗口显示最小宽度
+$content-margin: 15px; // 内容留空
+@include base-layout($win-min-width, $layout-footer-height, $content-margin);
+
+/*
+//============================================================
+@include base-layout 生成以下代码, 如果style.css不使用scss,引用该段代替
+//============================================================
+.min-width-out { _position: relative; _margin-left: 980px; _zoom: 1; }
+.min-width-in { _position: relative; _float: left; _margin-left: -980px; }
+.min-width { min-width: 980px; _zoom: 1; }
+html, body { height: 100%; }
+.wrapper { clear: both; min-height: 100%; height: auto !important; height: 100%; margin-bottom: -70px; }
+.wrapper .push { height: 70px; }
+.footer { clear: both; position: relative; height: 70px; }
+.mx-layout-center .header .content, .mx-layout-center .footer .content, .mx-layout-center .main .content { width: 950px !important; margin-left: auto !important; margin-right: auto !important; }
+*/
+
+// 全局
+a {
+  color: #2a69ac;
+}
+
+a:hover {
+  color: #3177c1;
+}
+
+//布局
+.has-sidebar {
+  background: #f3f5f7 url(../img/body-bg.png) repeat-y;
+}
+
+// 头部：左侧Logo + 右侧用户信息 + 功能菜单
+.header {
+  border-top: 2px solid #cf0f0f;
+  @include gradient-background(#ffffff, #f3f5f7);
+  position: relative;
+  border-bottom: 1px solid #fff;
+}
+
+.header-no-top {
+  border-top-color: #fff;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.header .content,
+.footer .content {
+  position: relative;
+  padding: $content-margin;
+  @include clearfix();
+}
+
+.header .logo-img {
+  height: 25px;
+  float: left;
+  display: inline-block;
+}
+
+.header .logo-text {
+  float: left;
+  border-left: 1px solid #ccc;
+  margin-top: 4px;
+  margin-left: 10px;
+  padding-left: 10px;
+  color: #333;
+}
+
+.header-infos {
+  position: absolute;
+  right: $content-margin;
+  margin-top: 4px;
+}
+
+.header-infos dd {
+  float: left;
+  padding: 0 10px;
+  border-right: 1px solid #ccc;
+}
+
+.header-infos span {
+  margin-right: $content-margin;
+}
+
+.header-infos .last {
+  margin: 0;
+  border: none;
+  padding-right: 0;
+}
+
+.main-menu {
+  position: relative;
+}
+
+// 主菜单：左侧控台名称 + 右侧 第一级主菜单
+.main-menu {
+  border-top: 1px solid #2364a9;
+  height: 64px;
+  @include gradient-background(#1B5EA6, #12559B);
+  overflow: hidden;
+}
+
+.main-menu-title {
+  float: left;
+  width: 540px;
+  height: 64px;
+  background: url(../img/main-menu-bg.png) no-repeat;
+  font-family: Microsoft Yahei;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: $content-margin;
+  line-height: 63px;
+}
+
+.nav-tab {
+  position: absolute;
+  top: 0;
+  right: $content-margin;
+}
+
+.nav-tab .nav-tab-item {
+  float: left;
+  margin: 34px 0 0 4px;
+  border: 1px solid #144880;
+  border-bottom: 0;
+  color: #B7D3EE;
+  text-align: center;
+  line-height: 29px;
+  box-shadow: 0px 0px 2px #165392;
+  @include gradient-background(#3276BC, #1B60A8);
+}
+
+.nav-tab .nav-tab-item a {
+  color: #B7D3EE;
+  display: block;
+  width: 103px;
+  height: 29px;
+}
+
+.nav-tab .nav-tab-item a:hover {
+  color: #eee;
+}
+
+.nav-tab .current {
+  width: 113px;
+  color: #2A69AC;
+  @include gradient-background(#F3F5F7, #FFFFFF);
+}
+
+.nav-tab .current a {
+  color: #2A69AC;
+}
+
+.nav-tab .current a:hover {
+  color: #333;
+}
+
+.mx-layout-center .main-menu {
+  background: #2e74bc;
+  border-top: 1px solid #175ba2;
+  height: auto;
+}
+
+.mx-layout-center .nav-tab {
+  position: static;
+  width: 960px;
+  margin: 0 auto;
+}
+
+.mx-layout-center .nav-tab .nav-tab-item {
+  margin: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  border-left: 1px solid #2e74bc;
+  border-right: 1px solid #2e74bc;
+}
+
+.mx-layout-center .nav-tab .nav-tab-item a {
+  color: #fff;
+  padding: 10px 0;
+}
+
+.mx-layout-center .nav-tab .nav-tab-item a:hover {
+  color: #B7D3EE;
+}
+
+.mx-layout-center .nav-tab .current {
+  width: auto;
+  color: #fff;
+  background-color: #236bb7;
+  border-left: 1px solid #1e67b4;
+  border-right: 1px solid #1e67b4;
+}
+
+//左侧 二级三级菜单栏
+.sidebar-menu {
+  width: 239px;
+  float: left;
+}
+
+.sidebar-menu .sidebar-top {
+  @include gradient-background(#D3D9E2, #E8EEF5);
+  height: 15px;
+  overflow: hidden;
+}
+
+.left-nav-item {
+  _zoom: 1;
+}
+
+.left-nav-item dt {
+  border-bottom: 1px solid #DAE5ED;
+  cursor: pointer;
+  _zoom: 1;
+}
+
+.left-nav-item dt a {
+  color: #666;
+  display: block;
+  height: 16px;
+  padding: 10px 0 10px 35px;
+  background: #e9eff6
+}
+
+.left-nav-item dt a:hover {
+  color: #333;
+  background: #f1f6fa;
+  border: none;
+  height: 16px;
+}
+
+.left-nav-item dd {
+  display: none;
+  height: 34px;
+  border-bottom: 1px solid #cfdce6;
+}
+
+.left-nav-item dd a {
+  display: block;
+  height: 34px;
+  padding-left: 75px;
+  line-height: 33px;
+  _border-bottom: 1px solid #DFE9F5
+}
+
+.left-nav-item a:hover,
+.left-nav-item a.hover {
+  height: 33px;
+  background-color: #568BC3;
+  border-width: 1px 0;
+  border-color: #437AB2;
+  border-style: solid;
+  color: #fff;
+}
+
+.left-nav-item .current dd {
+  background-color: #DFE9F5;
+}
+
+.nav-ico {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 15px;
+  background: url(../img/menu-open.png) no-repeat;
+  overflow: hidden;
+}
+
+.current .nav-ico {
+  background: url(../img/menu-close.png) no-repeat;
+}
+
+
+/*** 最好使用 fixed, fix later ***/
+
+.arrow-btn {
+  /* position:fixed;_ */
+  position: absolute;
+  top: 175px;
+  left: 240px;
+  padding: 14px 4px 14px 3px;
+  line-height: 0;
+  background-color: #9BA2AB;
+  text-align: center;
+  cursor: pointer;
+  font-family: arial;
+}
+
+.arrow-btn-left,
+.arrow-btn-right {
+  display: inline-block;
+  width: 5px;
+  height: 7px;
+  background: url(../img/icon-arrow-left.png) no-repeat;
+  overflow: hidden;
+}
+
+.arrow-btn-right {
+  background: url(../img/icon-arrow-right.png) no-repeat;
+}
+
+// 右侧主要内容页
+.main .content {
+  margin: 0 0 0 255px;
+  padding: 50px $content-margin 50px;
+  _float: left;
+  _margin-left: 0;
+}
+
+.main-content-title {
+  border-top: 1px dashed $formBorderColor;
+}
+
+.main-content-title span {
+  position: absolute;
+  margin-top: -10px;
+  padding-right: 15px;
+  background-color: #F3F5F7;
+  color: #333;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.main-content-top {
+  padding-top: 30px;
+  border-bottom: 1px dashed $formBorderColor;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+}
+
+.main-content-bottom {
+  /* margin-left: 380px; */
+}
+
+//页脚
+.footer {
+  background-color: #e5e5e5;
+  font-size: 12px;
+  line-height: 20px;
+  color: #999;
+}
+
+.footer a {
+  color: #999;
+  margin-right: 5px;
+}
+
+.footer a:hover {
+  color: #bcbcbc;
+}
+
+.footer-auth {
+  width: 495px;
+  height: 40px;
+  background: url('../image/footer-auth.png') no-repeat;
+  position: absolute;
+  right: $content-margin;
+  top: 10px;
+}
+
+.footer-auth a {
+  height: 40px;
+  display: inline-block;
+  float: left;
+  margin-right: 0;
+}
+
+.footer-auth a.link-1 {
+  width: 100px;
+}
+
+.footer-auth a.link-2 {
+  width: 95px;
+}
+
+.footer-auth a.link-3 {
+  width: 103px;
+}
+
+.footer-auth a.link-4 {
+  width: 100px;
+}
+
+.footer-auth a.link-5 {
+  width: 95px;
+}
+
+.footer-auth a:hover {
+  background: url('../image/footer-auth.png') no-repeat;
+}
+
+.footer-auth a.link-1:hover {
+  background-position: 0 -40px;
+}
+
+.footer-auth a.link-2:hover {
+  background-position: -100px -40px;
+}
+
+.footer-auth a.link-3:hover {
+  background-position: -195px -40px;
+}
+
+.footer-auth a.link-4:hover {
+  background-position: -298px -40px;
+}
+
+.footer-auth a.link-5:hover {
+  background-position: -398px -40px;
+}
