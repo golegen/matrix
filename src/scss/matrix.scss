@@ -6,8 +6,10 @@
 @charset "UTF-8";
 // css 重置
 @import "matrix/reset.scss";
-// 变量
+// 变量列表
 @import "matrix/variables.scss";
+// 图片文件集合
+@import "matrix/imgs.scss";
 // 自定义模块
 @import "matrix/mixins.scss";
 // 快速常用样式工具
